@@ -35,6 +35,24 @@
 <br>
 
 ```
+    public static class Flower implements Comparable<Flower> {
+        private int start;
+        private int end;
+
+        public Flower(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public int compareTo(Flower otherFlower) {
+            if (this.start != otherFlower.start) return Integer.compare(this.start, otherFlower.start);
+            return Integer.compare(this.end, otherFlower.end);
+        }
+    }
+
+    ...
+    
     Flower[] flowers = new Flower[n];
 
     for (int i = 0; i < n; i++) {
